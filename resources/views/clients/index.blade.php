@@ -50,15 +50,15 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-
+                                    @foreach($clients as $client)
                                     <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td> <button class="btn btn-danger" data-id="">Delete</button> </td>
+                                        <th scope="row">{{ $client -> id }}</th>
+                                        <td>{{ $client->company }}</td>
+                                        <td>{{ $client->vat }}</td>
+                                        <td>{{ $client->address }}</td>
+                                        <td> <button class="btn btn-danger" data-id="{{$client->id}}">Delete</button> </td>
                                     </tr>
-
+                                    @endforeach
                                     </tbody>
                                 </table>
                         </div>
