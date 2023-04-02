@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -15,6 +16,11 @@ class UserController extends Controller
 
     public function show (): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
     {
-        return view('users');
+
+        return view('user/users', [
+            'users' => User::all()
+        ]);
     }
+
+
 }

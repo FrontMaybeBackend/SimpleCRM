@@ -15,7 +15,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <a href="{{ route('users') }}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Users</span> </a>
                         </li>
                         <li>

@@ -28,3 +28,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Users
 
 Route::get('/users',[\App\Http\Controllers\UserController::class,'show'])->name('users');
+
