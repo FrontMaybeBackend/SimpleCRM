@@ -29,3 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/users',[\App\Http\Controllers\UserController::class,'show'])->name('users');
 
+
+//Clients
+
+Route::get('/index',[\App\Http\Controllers\ClientController::class,'index'])->name('index');

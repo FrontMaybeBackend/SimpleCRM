@@ -34,28 +34,37 @@
                     <hr>
                 </div>
             </div>
+
             <div class="col py-3">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-header">{{ __('Dashboard') }}</div>
+                                <table class="table ">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-                                <div class="card-body">
-                                    @if (session('status'))
-                                        <div class="alert alert-success" role="alert">
-                                            {{ session('status') }}
-                                        </div>
-                                    @endif
-                                    {{ __('You are logged in!') }}
-                                </div>
-                            </div>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td> <button class="btn btn-danger" data-id="">Delete</button> </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 @endsection
