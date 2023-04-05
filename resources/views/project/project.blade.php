@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
@@ -34,28 +35,52 @@
                     <hr>
                 </div>
             </div>
-            <div class="col py-3">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                                <div class="card-body">
-                                    @if (session('status'))
-                                        <div class="alert alert-success" role="alert">
-                                            {{ session('status') }}
-                                        </div>
-                                    @endif
-                                    {{ __('You are logged in!') }}
-                                </div>
-                            </div>
+
+
+
+            <form class="w-75 m-3 h-100" style="background-color: white">
+            <p class="m-3">Create project</p>
+           <hr class="w-100">
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example1">Title</label>
+                            <input type="text" id="form6Example1" class="form-control" />
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
+                <!-- Text input -->
+                <div class="form-outline mb-4">
+                    <label for="floatingTextarea2">Description</label>
+                    <textarea class="form-control"  id="form6Example4" ></textarea>
+                </div>
+
+                <!-- Date input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form6Example4">Deadline</label>
+                    <input type="date" id="form6Example4" class="form-control" />
+
+                </div>
+
+                <!-- Assigned user input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form6Example5">Assigned user</label>
+                    <select class="form-select" id="form6Example5">
+                    </select>
+                </div>
+
+                <!-- Assigned client input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form6Example6">Assigned client</label>
+                    <select class="form-select" id="form6Example6">
+                    </select>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
+            </form>
 
 @endsection

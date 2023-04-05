@@ -23,7 +23,7 @@
                                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Clients</span></a>
                         </li>
                         <li>
-                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <a href="{{route('project')}}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Projects</span> </a>
                         </li>
                         <li>
@@ -39,13 +39,14 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
+                            <div class="col"> Clients
                                 <table class="table ">
                                     <thead>
                                     <tr>
                                         <th scope="col">Id</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Date</th>
+                                        <th scope="col">Company</th>
+                                        <th scope="col">Vat</th>
+                                        <th scope="col">Adress</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                     </thead>
@@ -61,6 +62,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                            </div>
                         </div>
                     </div>
                 </div>

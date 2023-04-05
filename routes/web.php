@@ -33,3 +33,5 @@ Route::get('/users',[\App\Http\Controllers\UserController::class,'show'])->name(
 //Clients
 
 Route::get('/index',[\App\Http\Controllers\ClientController::class,'index'])->name('index');
+
+Route::get('/project',[\App\Http\Controllers\ProjectController::class,'show'])->name('project');
