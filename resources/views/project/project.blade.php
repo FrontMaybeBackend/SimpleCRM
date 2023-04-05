@@ -39,7 +39,8 @@
 
 
 
-            <form class="w-75 m-3 h-100" style="background-color: white">
+            <form class="w-75 m-3 h-100" style="background-color: white" method="POST">
+                @csrf
             <p class="m-3">Create project</p>
            <hr class="w-100">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
@@ -69,13 +70,20 @@
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form6Example5">Assigned user</label>
                     <select class="form-select" id="form6Example5">
+                        <option class="selected">Users</option>
+                        @foreach($users as $user)
+                        <option value="1">{{$user->name}}</option>
+                        @endforeach
                     </select>
                 </div>
-
                 <!-- Assigned client input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form6Example6">Assigned client</label>
                     <select class="form-select" id="form6Example6">
+                        <option class="selected">Clients</option>
+                        @foreach($clients as $client)
+                            <option value="1">{{$client->company}}</option>
+                        @endforeach
                     </select>
                 </div>
 
