@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Client;
 use App\Models\Project;
 use App\Models\User;
@@ -39,10 +40,18 @@ class ProjectController extends Controller
     {
         return view('project/project');
     }
-    public function store(Request $request): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
+
+    /**
+     * @param PostRequest $request
+     * @return \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
+     */
+    public function store(PostRequest $request): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
     {
+        $request -> validate();
       $projects = new Project($request->all());
       $projects->save();
       return redirect(route('project'));
     }
+
+
 }

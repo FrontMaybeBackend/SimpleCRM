@@ -47,17 +47,25 @@
                 <div class="row mb-4">
                     <div class="col">
                         <div class="form-outline">
-                            <label class="form-label" for="form6Example1">Title</label>
-                            <input type="text" id="form6Example1" class="form-control" />
+                            @error('form-label')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            <label class="form-label" id="title" name="title" for="title">Title</label>
+                            <input type="text" id="title" class="form-control" />
                         </div>
                     </div>
                 </div>
 
+
                 <!-- Text input -->
                 <div class="form-outline mb-4">
-                    <label for="floatingTextarea2">Description</label>
-                    <textarea class="form-control"  id="form6Example4" ></textarea>
+                    @error('description')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                    <label for="description">Description</label>
+                    <textarea class="form-control"  id="description" name="description" ></textarea>
                 </div>
+
 
                 <!-- Date input -->
                 <div class="form-outline mb-4">
