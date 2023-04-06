@@ -47,52 +47,60 @@
                 <div class="row mb-4">
                     <div class="col">
                         <div class="form-outline">
-                            @error('form-label')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
                             <label class="form-label" id="title" name="title" for="title">Title</label>
-                            <input type="text" id="title" class="form-control" />
+                            <input id="title" type="text"  name="title" class="form-control @error('title') is-invalid @enderror"  value="{{ old('title') }}">
+                            @error('title')
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                 </div>
 
-
                 <!-- Text input -->
                 <div class="form-outline mb-4">
+
+                    <label for="description" >Description</label>
+                    <textarea class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}"  ></textarea>
                     @error('description')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
                     @enderror
-                    <label for="description">Description</label>
-                    <textarea class="form-control"  id="description" name="description" ></textarea>
                 </div>
 
 
                 <!-- Date input -->
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form6Example4">Deadline</label>
-                    <input type="date" id="form6Example4" class="form-control" />
-
+                    <label class="form-label" for="deadline">Deadline</label>
+                    <input type="date" id="deadline" class="form-control @error('deadline') is-invalid @enderror" name="deadline" value="{{old('deadline')}}" />
+                    @error('deadline')
+                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Assigned user input -->
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form6Example5">Assigned user</label>
-                    <select class="form-select" id="form6Example5">
+                    <label class="form-label" for="assigned_user">Assigned user</label>
+                    <select class="form-select @error('assigned_user') is-invalid @enderror" id="assigned_user" name="assigned_user" value="{{old('assigned_user')}}">
                         <option class="selected">Users</option>
                         @foreach($users as $user)
-                        <option value="1">{{$user->name}}</option>
+                        <option value={{$user->name}}>{{$user->name}}</option>
                         @endforeach
                     </select>
+                    @error('assigned_user')
+                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                    @enderror
                 </div>
                 <!-- Assigned client input -->
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form6Example6">Assigned client</label>
-                    <select class="form-select" id="form6Example6">
+                    <label class="form-label" for="assigned_client">Assigned client</label>
+                    <select class="form-select @error('assigned_client') is-invalid @enderror" id="assigned_client" name="assigned_client" value="{{old('assigned_client')}}"" id="assigned_client">
                         <option class="selected">Clients</option>
                         @foreach($clients as $client)
-                            <option value="1">{{$client->company}}</option>
+                            <option value="{{$client->company}}">{{$client->company}}</option>
                         @endforeach
                     </select>
+                    @error('assigned_client')
+                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Submit button -->

@@ -22,9 +22,9 @@ class PostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|max:255',
-            'description'=> 'required||max:500',
-            'deadline'=> 'required|date_format|',
+            'title' => 'required',
+            'description'=> 'required',
+            'deadline'=> 'required',
             'assigned_user'=> 'required',
             'assigned_client'=> 'required',
         ];
@@ -33,11 +33,12 @@ class PostRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.required' => 'A title is required',
-            'description.required' => 'A message is required',
-            'deadline.required' => 'A title is required',
-            'assigned_user.required' => 'A title is required',
-            'assigned_client.required' => 'A title is required',
+            'title.required' => 'Title is required',
+            'description.required' => 'Message is required',
+            'deadline.required' => 'Date is required',
+            'deadline.date_format' => 'Deadline must be in date format',
+            'assigned_user.required' => 'User is required',
+            'assigned_client.required' => 'Client is required',
         ];
     }
 }
