@@ -14,4 +14,16 @@ class ClientController extends Controller
         'clients' => Client::all()
     ]);
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id): \Illuminate\Http\RedirectResponse
+    {
+        $client = Client::findorFail($id);
+        $client ->delete();
+        return redirect()->route('index');
+
+    }
 }

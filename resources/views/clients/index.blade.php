@@ -25,7 +25,11 @@
                                         <td>{{ $client->company }}</td>
                                         <td>{{ $client->vat }}</td>
                                         <td>{{ $client->address }}</td>
-                                        <td> <button class="btn btn-danger" data-id="{{$client->id}}">Delete</button> </td>
+                                        <form action="{{route('index/destroy', $client->id)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                        <td> <button class="btn btn-danger" >Delete</button> </td>
+                                        </form>
                                     </tr>
                                     @endforeach
                                     </tbody>

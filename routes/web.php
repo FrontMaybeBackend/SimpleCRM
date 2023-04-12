@@ -34,10 +34,12 @@ Route::delete('/users/{id}',[\App\Http\Controllers\UserController::class,'destro
 //Clients
 
 Route::get('/index',[\App\Http\Controllers\ClientController::class,'index'])->name('index');
+Route::delete('/index/{id}',[\App\Http\Controllers\ClientController::class,'destroy'])->name('index/destroy');
 //PROJECT
 Route::get('/project',[\App\Http\Controllers\ProjectController::class,'show'])->name('project');
 Route::get('/project/create',[\App\Http\Controllers\ProjectController::class,'create'])->name('project/create');
 Route::post('/project',[\App\Http\Controllers\ProjectController::class,'store'])->name('project/');
+
 //Dashboard
 
 Route::get('/dashboard/show',[\App\Http\Controllers\DashboardController::class,'show'])->name('show');
