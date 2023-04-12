@@ -22,5 +22,12 @@ class UserController extends Controller
         ]);
     }
 
+    public function destroy($id): \Illuminate\Http\RedirectResponse
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('users');
+    }
 
 }

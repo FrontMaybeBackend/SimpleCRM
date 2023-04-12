@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <table class="table ">
+    <table class="table w-75 ">
         <thead>
         <tr>
             <th scope="col">Id</th>
@@ -19,7 +19,11 @@
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->created_at }}</td>
-            <td> <button class="btn btn-danger" data-id="{{$user->id}}">Delete</button> </td>
+            <form action={{route('users/destroy', $user->id)}} method="POST">
+                @csrf
+                @method('DELETE')
+            <td> <button class="btn btn-danger">Delete</button> </td>
+            </form>
         </tr>
         @endforeach
         </tbody>

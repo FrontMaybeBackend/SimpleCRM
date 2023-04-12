@@ -28,6 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Users
 
 Route::get('/users',[\App\Http\Controllers\UserController::class,'show'])->name('users');
+Route::delete('/users/{id}',[\App\Http\Controllers\UserController::class,'destroy'])->name('users/destroy');
 
 
 //Clients
@@ -37,3 +38,6 @@ Route::get('/index',[\App\Http\Controllers\ClientController::class,'index'])->na
 Route::get('/project',[\App\Http\Controllers\ProjectController::class,'show'])->name('project');
 Route::get('/project/create',[\App\Http\Controllers\ProjectController::class,'create'])->name('project/create');
 Route::post('/project',[\App\Http\Controllers\ProjectController::class,'store'])->name('project/');
+//Dashboard
+
+Route::get('/dashboard/show',[\App\Http\Controllers\DashboardController::class,'show'])->name('show');
