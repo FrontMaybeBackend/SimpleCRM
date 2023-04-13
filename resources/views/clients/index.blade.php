@@ -2,12 +2,13 @@
 
 @section('content')
 
-
+<button class="btn-success btn">Create client</button>
             <div class="col py-3">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="col"> Clients
+                <div class="container ">
+                    <div class="row ">
+                        <div class="col-md-8 bg-white border border-dark">
+                            <div class="col m-2 "> Clients List
+                                <hr>
                                 <table class="table ">
                                     <thead>
                                     <tr>
@@ -29,6 +30,10 @@
                                             @csrf
                                             @method('DELETE')
                                         <td> <button class="btn btn-danger" >Delete</button> </td>
+                                        </form>
+                                        <form action="{{route('edit', $client->id)}}" method="GET">
+                                            @csrf
+                                            <td> <button class="btn btn-info" >Edit</button> </td>
                                         </form>
                                     </tr>
                                     @endforeach

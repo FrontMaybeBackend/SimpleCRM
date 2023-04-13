@@ -35,7 +35,8 @@ Route::delete('/users/{id}',[\App\Http\Controllers\UserController::class,'destro
 
 Route::get('/index',[\App\Http\Controllers\ClientController::class,'index'])->name('index');
 Route::delete('/index/{id}',[\App\Http\Controllers\ClientController::class,'destroy'])->name('index/destroy');
-//PROJECT
+Route::get('/edit/{client}',[\App\Http\Controllers\ClientController::class,'edit'])->name('edit');
+///PROJECT
 Route::get('/project',[\App\Http\Controllers\ProjectController::class,'show'])->name('project');
 Route::get('/project/create',[\App\Http\Controllers\ProjectController::class,'create'])->name('project/create');
 Route::post('/project',[\App\Http\Controllers\ProjectController::class,'store'])->name('project/');
