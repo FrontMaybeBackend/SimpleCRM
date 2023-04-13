@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    <form action="{{route('index', $client->id)}}" method="POST">
+        @csrf
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -10,12 +12,12 @@
                     <div class="card-body">
 
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">Company</label>
+                                <label for="company" class="col-md-4 col-form-label text-md-end">Company</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" maxlength="500" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $client->company }}" required autocomplete="name" autofocus>
+                                    <input id="company" type="text" maxlength="500" class="form-control @error('company') is-invalid @enderror" name="company" value="{{ $client->company }}"  autofocus>
 
-                                    @error('name')
+                                    @error('company')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -27,9 +29,9 @@
                                 <label for="description" class="col-md-4 col-form-label text-md-end">Vat</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="description" type="text" maxlength="1500" class="form-control @error('description') is-invalid @enderror" name="description"  autofocus>{{ $client->vat }}"</textarea>
+                                    <textarea id="vat" type="text" maxlength="1500" class="form-control @error('vat') is-invalid @enderror" name="vat"  autofocus>{{ $client->vat }}"</textarea>
 
-                                    @error('description')
+                                    @error('vat')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -38,12 +40,12 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="amount" class="col-md-4 col-form-label text-md-end">Addres</label>
+                                <label for="address" class="col-md-4 col-form-label text-md-end">Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="amount"   class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ $client->address }}" required autocomplete="amount" autofocus>
+                                    <input id="address"   class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $client->address }}"  autofocus>
 
-                                    @error('amount')
+                                    @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -64,4 +66,5 @@
             </div>
         </div>
     </div>
+    </form>
 @endsection

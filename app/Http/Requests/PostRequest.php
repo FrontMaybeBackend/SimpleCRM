@@ -27,6 +27,9 @@ class PostRequest extends FormRequest
             'deadline'=> 'required',
             'assigned_user'=> 'required',
             'assigned_client'=> 'required',
+            'company' =>'required',
+            'vat' =>'required',
+            'address'=>'required'
         ];
     }
 
@@ -39,6 +42,9 @@ class PostRequest extends FormRequest
             'deadline.date_format' => 'Deadline must be in date format',
             'assigned_user.required' => 'User is required',
             'assigned_client.required' => 'Client is required',
+            'company.required' => 'Company is required',
+            'vat.required' => 'Vat is required',
+            'address.required' => 'Address is required',
         ];
     }
 }

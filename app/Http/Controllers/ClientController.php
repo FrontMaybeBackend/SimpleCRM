@@ -13,9 +13,9 @@ class ClientController extends Controller
 {
     public function index(): \Illuminate\Contracts\Foundation\Application|Factory|\Illuminate\Contracts\View\View|Application
     {
-         return view('clients/index', [
-        'clients' => Client::all()
-    ]);
+        return view('clients/index', [
+            'clients' => Client::all()
+        ]);
     }
 
     /**
@@ -25,7 +25,7 @@ class ClientController extends Controller
     public function destroy($id): RedirectResponse
     {
         $client = Client::findorFail($id);
-        $client ->delete();
+        $client->delete();
         return redirect()->route('index');
 
     }
@@ -33,10 +33,16 @@ class ClientController extends Controller
 
     public function edit(Client $client): \Illuminate\Contracts\Foundation\Application|Factory|\Illuminate\Contracts\View\View|Application
     {
-        return view('clients/edit',[
+        return view('clients/edit', [
             'client' => $client
         ]);
     }
 
+    public function update(Request $request, Client $client): RedirectResponse
+    {
+        $client ->fill($request->all());
+        $client->save();
+        return redirect(route('index'));
+    }
 
 }
