@@ -57,7 +57,7 @@
                 <!-- Assigned client input -->
                 <div class="form-outline mb-4">
                     <label class="form-label m-2" for="assigned_client">Assigned client</label>
-                    <select class="form-select @error('assigned_client') is-invalid @enderror" id="assigned_client" name="assigned_client" value="{{old('assigned_client')}}"" id="assigned_client">
+                    <select class="form-select @error('assigned_client') is-invalid @enderror" id="assigned_client" name="assigned_client" value="{{old('assigned_client')}}" id="assigned_client">
                         <option class="selected">Clients</option>
                         @foreach($clients as $client)
                             <option value="{{$client->company}}">{{$client->company}}</option>

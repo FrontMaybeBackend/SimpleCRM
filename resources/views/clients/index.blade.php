@@ -2,7 +2,10 @@
 
 @section('content')
 
+    <form action="{{route('create')}}" method="POST">
+        @csrf
 <button class="btn-success btn">Create client</button>
+    </form>
             <div class="col py-3">
                 <div class="container ">
                     <div class="row ">

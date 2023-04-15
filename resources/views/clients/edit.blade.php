@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{route('index', $client->id)}}" method="POST">
+    <form action="{{route('index.update', $client->id)}}" method="POST">
         @csrf
     <div class="container">
         <div class="row justify-content-center">
@@ -56,7 +56,7 @@
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Save
+                                        Edit
                                     </button>
                                 </div>
                             </div>
