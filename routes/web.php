@@ -27,22 +27,22 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Users
 
-Route::get('/users',[\App\Http\Controllers\UserController::class,'show'])->name('users');
-Route::delete('/users/{id}',[\App\Http\Controllers\UserController::class,'destroy'])->name('users/destroy');
+Route::get('/users',[\App\Http\Controllers\UserController::class,'show'])->name('users')->middleware('auth');
+Route::delete('/users/{id}',[\App\Http\Controllers\UserController::class,'destroy'])->name('users/destroy')->middleware('auth');
 
 
 //Clients
 
-Route::get('/index',[\App\Http\Controllers\ClientController::class,'index'])->name('index');
-Route::delete('/index/{id}',[\App\Http\Controllers\ClientController::class,'destroy'])->name('index/destroy');
-Route::get('/edit/{client}',[\App\Http\Controllers\ClientController::class,'edit'])->name('edit');
-Route::post('/index',[\App\Http\Controllers\ClientController::class,'update'])->name('index.update');
-Route::post('/create,',[\App\Http\Controllers\ClientController::class,'create'])->name('create');
-Route::post('/clients',[\App\Http\Controllers\ClientController::class,'store'])->name('index.store');
+Route::get('/index',[\App\Http\Controllers\ClientController::class,'index'])->name('index')->middleware('auth');
+Route::delete('/index/{id}',[\App\Http\Controllers\ClientController::class,'destroy'])->name('index.destroy')->middleware('auth');
+Route::get('/clients/edit/{client}',[\App\Http\Controllers\ClientController::class,'edit'])->name('edit')->middleware('auth');
+Route::patch('/clients/{client}', [\App\Http\Controllers\ClientController::class,'update'])->name('index.update')->middleware('auth');
+Route::get('/index/create',[\App\Http\Controllers\ClientController::class,'create'])->name('index.create')->middleware('auth');
+Route::post('/clients',[\App\Http\Controllers\ClientController::class,'store'])->name('index.store')->middleware('auth');
 ///PROJECT
-Route::get('/project',[\App\Http\Controllers\ProjectController::class,'show'])->name('project');
-Route::get('/project/create',[\App\Http\Controllers\ProjectController::class,'create'])->name('project/create');
-Route::post('/project',[\App\Http\Controllers\ProjectController::class,'store'])->name('project/');
+Route::get('/project',[\App\Http\Controllers\ProjectController::class,'show'])->name('project')->middleware('auth');
+Route::get('/project/create',[\App\Http\Controllers\ProjectController::class,'create'])->name('project/create')->middleware('auth');
+Route::post('/project',[\App\Http\Controllers\ProjectController::class,'store'])->name('project/')->middleware('auth');
 
 //Dashboard
 

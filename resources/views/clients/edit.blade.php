@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{route('index.update', $client->id)}}" method="POST">
+    <form method="POST" action="{{ route('index.update', ['client' => $client]) }}">
         @csrf
+        @method('PATCH')
+        <input type="hidden" name="id" value="{{ $client->id }}">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -53,6 +55,7 @@
                                 </div>
                             </div>
 
+
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
@@ -60,7 +63,7 @@
                                     </button>
                                 </div>
                             </div>
-                        </form>
+
                     </div>
                 </div>
             </div>

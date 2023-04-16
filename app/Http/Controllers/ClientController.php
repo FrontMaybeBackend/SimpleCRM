@@ -35,7 +35,7 @@ class ClientController extends Controller
 
     public function edit(Client $client): \Illuminate\Contracts\Foundation\Application|Factory|\Illuminate\Contracts\View\View|Application
     {
-        return view('clients/edit', [
+        return view('clients.edit', [
             'client' => $client
         ]);
     }
@@ -43,10 +43,12 @@ class ClientController extends Controller
 
     public function update(Request $request, Client $client): RedirectResponse
     {
+        $client = Client::findOrFail($request->id);
         $client->fill($request->all());
         $client->save();
         return redirect()->route('index');
     }
+
 
     public function create(): \Illuminate\Contracts\View\View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
