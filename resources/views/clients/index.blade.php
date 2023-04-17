@@ -2,9 +2,8 @@
 
 @section('content')
 
-    <form action="{{route('index.create')}}" method="POST">
+    <form action="{{route('index.create')}}" method="GET">
         @csrf
-        @method('GET')
 <button class="btn-success btn">Create client</button>
     </form>
             <div class="col py-3">

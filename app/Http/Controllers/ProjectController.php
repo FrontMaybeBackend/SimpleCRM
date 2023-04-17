@@ -48,7 +48,7 @@ class ProjectController extends Controller
     public function store(PostRequest $request): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
     {
 
-      $projects = new Project($request->all());
+      $projects = new Project($request->validated());
       $projects->save();
       return redirect(route('project'));
     }

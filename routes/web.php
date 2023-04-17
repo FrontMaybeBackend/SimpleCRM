@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,23 +31,23 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Users
 
-Route::get('/users',[\App\Http\Controllers\UserController::class,'show'])->name('users')->middleware('auth');
-Route::delete('/users/{id}',[\App\Http\Controllers\UserController::class,'destroy'])->name('users/destroy')->middleware('auth');
+Route::get('/users',[UserController::class,'show'])->name('users')->middleware('auth');
+Route::delete('/users/{id}',[UserController::class,'destroy'])->name('users/destroy')->middleware('auth');
 
 
 //Clients
 
-Route::get('/index',[\App\Http\Controllers\ClientController::class,'index'])->name('index')->middleware('auth');
-Route::delete('/index/{id}',[\App\Http\Controllers\ClientController::class,'destroy'])->name('index.destroy')->middleware('auth');
-Route::get('/clients/edit/{client}',[\App\Http\Controllers\ClientController::class,'edit'])->name('edit')->middleware('auth');
-Route::patch('/clients/{client}', [\App\Http\Controllers\ClientController::class,'update'])->name('index.update')->middleware('auth');
-Route::get('/index/create',[\App\Http\Controllers\ClientController::class,'create'])->name('index.create')->middleware('auth');
-Route::post('/clients',[\App\Http\Controllers\ClientController::class,'store'])->name('index.store')->middleware('auth');
+Route::get('/index',[ClientController::class,'index'])->name('index')->middleware('auth');
+Route::delete('/index/{id}',[ClientController::class,'destroy'])->name('index.destroy')->middleware('auth');
+Route::get('/clients/edit/{client}',[ClientController::class,'edit'])->name('edit')->middleware('auth');
+Route::patch('/clients/{client}', [ClientController::class,'update'])->name('index.update')->middleware('auth');
+Route::get('/index/create',[ClientController::class,'create'])->name('index.create')->middleware('auth');
+Route::post('/clients',[ClientController::class,'store'])->name('index.store')->middleware('auth');
 ///PROJECT
-Route::get('/project',[\App\Http\Controllers\ProjectController::class,'show'])->name('project')->middleware('auth');
-Route::get('/project/create',[\App\Http\Controllers\ProjectController::class,'create'])->name('project/create')->middleware('auth');
-Route::post('/project',[\App\Http\Controllers\ProjectController::class,'store'])->name('project/')->middleware('auth');
+Route::get('/project',[ProjectController::class,'show'])->name('project')->middleware('auth');
+Route::get('/project/create',[ProjectController::class,'create'])->name('project/create')->middleware('auth');
+Route::post('/project',[ProjectController::class,'store'])->name('project/')->middleware('auth');
 
 //Dashboard
 
-Route::get('/dashboard/show',[\App\Http\Controllers\DashboardController::class,'show'])->name('show');
+Route::get('/dashboard',[DashboardController::class,'index'])->name('dash');

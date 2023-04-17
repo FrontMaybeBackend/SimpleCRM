@@ -17,7 +17,7 @@
                                 <label for="company" class="col-md-4 col-form-label text-md-end">Company</label>
 
                                 <div class="col-md-6">
-                                    <input id="company" type="text" maxlength="500" class="form-control @error('company') is-invalid @enderror" name="company" value="{{ $client->company }}"  autofocus>
+                                    <input id="company" type="text" maxlength="500" class="form-control @error('company') is-invalid @enderror" name="company" value="{{old('company') }}"  autofocus>
 
                                     @error('company')
                                     <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                                 <label for="description" class="col-md-4 col-form-label text-md-end">Vat</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="vat" type="text" maxlength="1500" class="form-control @error('vat') is-invalid @enderror" name="vat"  autofocus>{{ $client->vat }}"</textarea>
+                                    <input id="vat" type="text" maxlength="1500" class="form-control @error('vat') is-invalid @enderror" name="vat"  autofocus>{{ old('vat') }}"</input>
 
                                     @error('vat')
                                     <span class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
                                 <label for="address" class="col-md-4 col-form-label text-md-end">Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="address"   class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $client->address }}"  autofocus>
+                                    <input id="address"   class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}"  autofocus>
 
                                     @error('address')
                                     <span class="invalid-feedback" role="alert">
@@ -63,7 +63,6 @@
                                     </button>
                                 </div>
                             </div>
-
                     </div>
                 </div>
             </div>

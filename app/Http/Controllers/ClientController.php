@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Client;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ use Symfony\Component\Console\Input\Input;
 
 class ClientController extends Controller
 {
-    public function index(): \Illuminate\Contracts\Foundation\Application|Factory|\Illuminate\Contracts\View\View|Application
+    public function index(): \Illuminate\View\View
     {
         return view('clients/index', [
             'clients' => Client::all()
@@ -33,7 +33,7 @@ class ClientController extends Controller
     }
 
 
-    public function edit(Client $client): \Illuminate\Contracts\Foundation\Application|Factory|\Illuminate\Contracts\View\View|Application
+    public function edit(Client $client): \Illuminate\View\View
     {
         return view('clients.edit', [
             'client' => $client
@@ -41,24 +41,24 @@ class ClientController extends Controller
     }
 
 
-    public function update(Request $request, Client $client): RedirectResponse
+    public function update(PostRequest $request, Client $client): RedirectResponse
     {
         $client = Client::findOrFail($request->id);
-        $client->fill($request->all());
+        $client->dd($request->all());
         $client->save();
         return redirect()->route('index');
     }
 
 
-    public function create(): \Illuminate\Contracts\View\View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    public function create(): \Illuminate\View\View
     {
         return view('clients/create');
     }
 
 
-    public function store(Request $request): Application|Redirector|RedirectResponse|\Illuminate\Contracts\Foundation\Application
+    public function store(PostRequest $request): RedirectResponse
     {
-        $client = new Client($request->all());
+        $client = new Client($request->validated());
         $client->save();
         return redirect(route('index'));
 
