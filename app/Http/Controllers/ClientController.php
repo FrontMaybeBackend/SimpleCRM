@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PostRequest;
+use App\Http\Requests;
+use App\Http\Requests\Client\ClientRequest;
 use App\Models\Client;
-use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\View;
-use Symfony\Component\Console\Input\Input;
 
 class ClientController extends Controller
 {
@@ -41,14 +37,11 @@ class ClientController extends Controller
     }
 
 
-    public function update(PostRequest $request, Client $client): RedirectResponse
+    public function update(ClientRequest $request, Client $client): RedirectResponse
     {
-        $client = Client::findOrFail($request->id);
-        $client->dd($request->all());
-        $client->save();
+        $client->update($request->validated());
         return redirect()->route('index');
     }
-
 
     public function create(): \Illuminate\View\View
     {
@@ -56,11 +49,10 @@ class ClientController extends Controller
     }
 
 
-    public function store(PostRequest $request): RedirectResponse
+    public function store(ClientRequest $request): RedirectResponse
     {
-        $client = new Client($request->validated());
-        $client->save();
-        return redirect(route('index'));
+        Client::create($request->validated());
+        return redirect()->route('index');
 
     }
 

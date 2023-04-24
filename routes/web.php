@@ -31,11 +31,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Users
 
+
+
 Route::get('/users',[UserController::class,'show'])->name('users')->middleware('auth');
 Route::delete('/users/{id}',[UserController::class,'destroy'])->name('users/destroy')->middleware('auth');
 
 
 //Clients
+
+
 
 Route::get('/index',[ClientController::class,'index'])->name('index')->middleware('auth');
 Route::delete('/index/{id}',[ClientController::class,'destroy'])->name('index.destroy')->middleware('auth');

@@ -17,7 +17,7 @@
                                 <label for="company" class="col-md-4 col-form-label text-md-end">Company</label>
 
                                 <div class="col-md-6">
-                                    <input id="company" type="text" maxlength="500" class="form-control @error('company') is-invalid @enderror" name="company" value="{{old('company') }}"  autofocus>
+                                    <input id="company" type="text"  class="form-control @error('company') is-invalid @enderror" name="company" value="{{$client->company}}"  autofocus>
 
                                     @error('company')
                                     <span class="invalid-feedback" role="alert">
@@ -27,25 +27,26 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <label for="description" class="col-md-4 col-form-label text-md-end">Vat</label>
+                        <div class="row mb-3">
+                            <label for="Vat" class="col-md-4 col-form-label text-md-end">Vat</label>
 
-                                <div class="col-md-6">
-                                    <input id="vat" type="text" maxlength="1500" class="form-control @error('vat') is-invalid @enderror" name="vat"  autofocus>{{ old('vat') }}"</input>
+                            <div class="col-md-6">
+                                <input id="Vat"   class="form-control @error('vat') is-invalid @enderror" name="vat" value="{{ $client->vat }}"  autofocus>
 
-                                    @error('vat')
-                                    <span class="invalid-feedback" role="alert">
+                                @error('vat')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                    @enderror
-                                </div>
+                                @enderror
                             </div>
+                        </div>
+                    </div>
 
                             <div class="row mb-3">
                                 <label for="address" class="col-md-4 col-form-label text-md-end">Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="address"   class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}"  autofocus>
+                                    <input id="address"   class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $client->address }}"  autofocus>
 
                                     @error('address')
                                     <span class="invalid-feedback" role="alert">

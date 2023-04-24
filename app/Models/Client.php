@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @method static findorFail($id)
+ * @method static create(mixed $validated)
  */
 class Client extends Model
 {
@@ -17,4 +19,9 @@ class Client extends Model
         'vat',
         'address',
     ];
+
+    public function Clients(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
