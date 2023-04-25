@@ -20,7 +20,6 @@ class ClientFactory extends Factory
     {
 
         return [
-            'users_id' =>User::findOrFail(1),
             'company' => fake()->company(),
             'vat' => Str::random(10),
             'address' =>fake()->address(),

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * @method static findorFail($id)
  * @method static create(mixed $validated)
+ * @method static paginate(int $int)
  */
 class Client extends Model
 {
@@ -20,8 +21,5 @@ class Client extends Model
         'address',
     ];
 
-    public function Clients(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+
 }

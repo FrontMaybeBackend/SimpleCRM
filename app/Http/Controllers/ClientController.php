@@ -12,7 +12,7 @@ class ClientController extends Controller
     public function index(): \Illuminate\View\View
     {
         return view('clients/index', [
-            'clients' => Client::all()
+            'clients' => Client::paginate(3)
         ]);
     }
 

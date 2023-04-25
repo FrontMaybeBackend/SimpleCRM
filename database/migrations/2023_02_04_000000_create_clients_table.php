@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->string('company');
-            $table->foreignId('users_id')->constrained('users');
             $table->string('vat');
             $table->string('address');
             $table->rememberToken();
