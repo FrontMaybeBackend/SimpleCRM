@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,4 +55,6 @@ Route::post('/project',[ProjectController::class,'store'])->name('project/')->mi
 
 //Dashboard
 
-Route::get('/dashboard',[DashboardController::class,'index'])->name('dash');
+
+
+Route::get('/dashboard/index',[DashboardController::class,'index'])->name('dashboard.index');
