@@ -105,7 +105,7 @@
                 <hr>
             </div>
         </div>
-        <main class="d-float ">
+        <main class="d-float w-75 ">
             @yield('content')
         </main>
     </div>
