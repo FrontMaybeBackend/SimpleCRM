@@ -32,26 +32,32 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Users
 
-
-
-Route::get('/users',[UserController::class,'show'])->name('users')->middleware('auth');
-Route::delete('/users/{id}',[UserController::class,'destroy'])->name('users/destroy')->middleware('auth');
-
+Route::controller(ProjectController::class)->group(function () {
+    Route::get('/users','show')->name('users')->middleware('auth');
+    Route::delete('/users/{id}','destroy')->name('users/destroy')->middleware('auth');
+});
 
 //Clients
 
+Route::controller(ProjectController::class)->group(function () {
+    Route::get('/index','index')->name('index')->middleware('auth');
+    Route::delete('/index/{id}','destroy')->name('index.destroy')->middleware('auth');
+    Route::get('/clients/edit/{client}','edit')->name('edit')->middleware('auth');
+    Route::patch('/clients/{client}', 'update')->name('index.update')->middleware('auth');
+    Route::get('/index/create','create')->name('index.create')->middleware('auth');
+    Route::post('/clients','store')->name('index.store')->middleware('auth');
+
+});
 
 
-Route::get('/index',[ClientController::class,'index'])->name('index')->middleware('auth');
-Route::delete('/index/{id}',[ClientController::class,'destroy'])->name('index.destroy')->middleware('auth');
-Route::get('/clients/edit/{client}',[ClientController::class,'edit'])->name('edit')->middleware('auth');
-Route::patch('/clients/{client}', [ClientController::class,'update'])->name('index.update')->middleware('auth');
-Route::get('/index/create',[ClientController::class,'create'])->name('index.create')->middleware('auth');
-Route::post('/clients',[ClientController::class,'store'])->name('index.store')->middleware('auth');
+
 ///PROJECT
-Route::get('/project/index',[ProjectController::class,'index'])->name('project.index')->middleware('auth');
-Route::get('/project/create',[ProjectController::class,'create'])->name('project.create')->middleware('auth');
-Route::post('/project',[ProjectController::class,'store'])->name('project.store')->middleware('auth');
+
+Route::controller(ProjectController::class)->group(function () {
+    Route::get('/project/index', 'index')->name('project.index')->middleware('auth');
+    Route::get('/project/create', 'create')->name('project.create')->middleware('auth');
+    Route::post('/project','store')->name('project.store')->middleware('auth');
+});
 
 //Dashboard
 

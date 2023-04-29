@@ -88,24 +88,29 @@
                     </li>
                     <li>
                         <a href="{{ route('users') }}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline text-black">Users</span> </a>
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline text-black">Users</span>
+                        </a>
                     </li>
                     <li>
                         <a href="{{route('index')}}" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline text-black">Clients</span></a>
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline text-black">Clients</span>
+                        </a>
                     </li>
                     <li>
                         <a href="{{route('project.index')}}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline text-black">Projects</span> </a>
+                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline text-black">Projects</span>
+                        </a>
                     </li>
                     <li>
                         <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline text-black">Tasks</span> </a>
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline text-black">Tasks</span>
+                        </a>
                     </li>
                 </ul>
                 <hr>
             </div>
         </div>
+
         <main class="d-float w-75 ">
             @yield('content')
         </main>
