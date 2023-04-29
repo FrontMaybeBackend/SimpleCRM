@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static findorFail($id)
  * @method static create(mixed $validated)
  * @method static paginate(int $int)
+ * @method static inRandomOrder()
  */
 class Client extends Model
 {
