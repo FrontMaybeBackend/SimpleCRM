@@ -95,7 +95,7 @@
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline text-black">Clients</span></a>
                     </li>
                     <li>
-                        <a href="{{route('project')}}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                        <a href="{{route('project.index')}}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline text-black">Projects</span> </a>
                     </li>
                     <li>

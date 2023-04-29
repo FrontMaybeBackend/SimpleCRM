@@ -25,19 +25,24 @@ class ProjectController extends Controller
      *
      * @return Renderable
      */
-    public function show(): Renderable
-    {
 
-        return view('project/project', [
-            'users' => User::all(),
-            'clients' => Client::all(),
-        ]);
-    }
+
+        public function index(): \Illuminate\View\View
+        {
+            return view('project.index', [
+                'projects' => Project::paginate(5),
+            ]);
+
+        }
+
 
 
     public function create(): View|\Illuminate\Foundation\Application|Factory|Application
     {
-        return view('project/project');
+        return view('project.create',[
+            'users'=>User::all(),
+            'clients'=>Client::all(),
+        ]);
     }
 
 
@@ -45,7 +50,7 @@ class ProjectController extends Controller
     {
 
         Project::create($request->validated());
-        return redirect()->route('index');
+        return redirect()->route('project.index');
     }
 
 

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @method static create(mixed $validated)
+ * @method static paginate(int $int)
  */
 class Project extends Model
 {
