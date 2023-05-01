@@ -32,17 +32,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Users
 
-Route::controller(ProjectController::class)->group(function () {
-    Route::get('/users','show')->name('users')->middleware('auth');
-    Route::delete('/users/{id}','destroy')->name('users/destroy')->middleware('auth');
+Route::controller(UserController::class)->group(function () {
+    Route::get('/users','index')->name('user.users')->middleware('auth');
+    Route::delete('/users/{user}','destroy')->name('users.destroy')->middleware('auth');
 });
 
 //Clients
 
-Route::controller(ProjectController::class)->group(function () {
+Route::controller(ClientController::class)->group(function () {
     Route::get('/index','index')->name('index')->middleware('auth');
-    Route::delete('/index/{id}','destroy')->name('index.destroy')->middleware('auth');
-    Route::get('/clients/edit/{client}','edit')->name('edit')->middleware('auth');
+    Route::delete('/index/{client}','destroy')->name('index.destroy')->middleware('auth');
+    Route::get('/clients/edit/{client:company}','edit')->name('edit')->middleware('auth');
     Route::patch('/clients/{client}', 'update')->name('index.update')->middleware('auth');
     Route::get('/index/create','create')->name('index.create')->middleware('auth');
     Route::post('/clients','store')->name('index.store')->middleware('auth');
@@ -63,4 +63,4 @@ Route::controller(ProjectController::class)->group(function () {
 
 
 
-Route::get('/dashboard/index',[DashboardController::class,'index'])->name('dashboard.index');
+Route::get('/dashboard/index',[DashboardController::class,'index'])->name('dashboard.index')->middleware('auth');

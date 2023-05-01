@@ -20,9 +20,9 @@ class ClientController extends Controller
      * @param $id
      * @return RedirectResponse
      */
-    public function destroy($id): RedirectResponse
+    public function destroy(Client $client): RedirectResponse
     {
-        $client = Client::findorFail($id);
+
         $client->delete();
         return redirect()->route('index');
 

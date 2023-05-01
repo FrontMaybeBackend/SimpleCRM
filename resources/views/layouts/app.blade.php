@@ -21,7 +21,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white  shadow-sm ">
         <div class="container ">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
 
@@ -87,7 +87,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('users') }}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                        <a href="{{ route('user.users') }}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline text-black">Users</span>
                         </a>
                     </li>
@@ -117,5 +117,9 @@
     </div>
 </div>
 </div>
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])
+<script type="text/javascript">
+@yield('javascript')
+</script>
 </body>
 </html>

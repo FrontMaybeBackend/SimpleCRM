@@ -24,10 +24,10 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->created_at }}</td>
-                <form action={{route('users/destroy', $user->id)}} method="POST">
+                <form action={{route('users.destroy', $user)}} method="POST">
                     @csrf
                     @method('DELETE')
-                    <td> <button class="btn btn-danger">Delete</button> </td>
+                    <td> <button  id="delete" class="btn btn-danger">Delete</button> </td>
                 </form>
             </tr>
         @endforeach
@@ -42,3 +42,14 @@
     </div>
     </div>
 @endsection
+@section('javascript')
+    const deleteButton = document.getElementById('delete');
+    deleteButton.addEventListener('click', editUser);
+
+    function editUser(){
+   alert('sss');
+    };
+
+    alert('xxx');
+
+    @endsection

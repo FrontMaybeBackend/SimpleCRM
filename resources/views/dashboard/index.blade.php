@@ -1,9 +1,7 @@
 @php use Illuminate\Support\Facades\DB; @endphp
 @extends('layouts.app')
 
-<head>
-    <link rel="stylesheet" href="{{url('dashboard.css')}}">
-</head>
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])
 @section('content')
     <h1>Dashboard</h1>
     <div class="row justify-content-between p-5 ">

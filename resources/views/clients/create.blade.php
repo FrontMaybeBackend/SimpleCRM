@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <form class="w-75 m-3 h-100" style="background-color: white" action="{{ route('index.store') }}" method="POST" enctype="multipart/form-data">
+    <form class="w-75 m-3 h-100" style="background-color: white" action="{{ route('index.store') }}" method="POST">
         @csrf
         <p class=" p-3">Create Client</p>
         <hr>
