@@ -16,10 +16,10 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">Company</th>
-                                    <th scope="col">Vat</th>
-                                    <th scope="col">Adress</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">User</th>
+                                    <th scope="col">Client</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -28,6 +28,7 @@
                                         <th scope="row">{{ $project ->title }}</th>
                                         <td>{{ $project->description }}</td>
                                         <td>{{ $project->deadline}}</td>
+                                        <td>{{ $project->assigned_client }}</td>
                                         <td>{{ $project->assigned_user }}</td>
                                     </tr>
                                 @endforeach

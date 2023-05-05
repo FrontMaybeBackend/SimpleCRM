@@ -34,7 +34,7 @@ class ProjectController extends Controller
 
 
 
-    public function create(): View|\Illuminate\Foundation\Application|Factory|Application
+    public function create(): View
     {
         return view('project.create',[
             'users'=>User::all(),

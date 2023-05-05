@@ -27,6 +27,8 @@ class ProjectCreateRequest extends FormRequest
             'deadline'=>['required'],
             'assigned_user'=>['required'],
             'assigned_client'=>['required'],
+            'client_id'=>['nullable'],
+            'user_id'=>['nullable'],
         ];
     }
 

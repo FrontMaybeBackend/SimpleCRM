@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_id',
     ];
 
     /**
@@ -52,4 +53,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Client::class);
     }
+
+
 }

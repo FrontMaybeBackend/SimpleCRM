@@ -20,6 +20,11 @@ return new class extends Migration
             $table->string('assigned_client');
             $table->timestamps();
         });
+
+        Schema::table('clients', function (Blueprint $table) {
+            $table->unsignedBigInteger('client_id')->nullable();
+            $table->foreign('client_id')->references('id')->on('clients');
+        });
     }
 
     /**
