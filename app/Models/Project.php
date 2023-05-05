@@ -22,6 +22,15 @@ class Project extends Model
         'assigned_client',
     ];
 
+    protected static function booted()
+    {
+        static::created(function ($project) {
+            $client = Client::find($project->assigned_client);
+            $client->project_id = $project->id;
+            $client->save();
+        });
+    }
+
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);

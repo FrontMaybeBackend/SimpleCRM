@@ -47,7 +47,7 @@
             <select class="form-select @error('assigned_user') is-invalid @enderror" id="assigned_user" name="assigned_user" value="{{old('assigned_user')}}">
                 <option class="selected">Users</option>
                 @foreach($users as $user)
-                    <option value={{$user->name}}>{{$user->name}}</option>
+                    <option value={{$user->id}}>{{$user->name}}</option>
                 @endforeach
             </select>
             @error('assigned_user')
@@ -60,7 +60,7 @@
             <select class="form-select @error('assigned_client') is-invalid @enderror" id="assigned_client" name="assigned_client" value="{{old('assigned_client')}}" id="assigned_client">
                 <option class="selected">Clients</option>
                 @foreach($clients as $client)
-                    <option value={{$client->company}}>{{$client->company}}</option>
+                    <option value={{$client->id}}>{{$client->company}}</option>
                 @endforeach
             </select>
             @error('assigned_client')

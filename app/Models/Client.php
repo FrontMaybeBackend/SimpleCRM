@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static create(mixed $validated)
  * @method static paginate(int $int)
  * @method static inRandomOrder()
+ * @method static find($assigned_client)
  */
 class Client extends Model
 {
@@ -21,7 +22,7 @@ class Client extends Model
         'company',
         'vat',
         'address',
-        'client_id',
+        'project_id',
     ];
 
     public function user(): BelongsTo
