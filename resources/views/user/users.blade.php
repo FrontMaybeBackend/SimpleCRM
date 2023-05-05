@@ -27,7 +27,7 @@
                 <form action={{route('users.destroy', $user)}} method="POST">
                     @csrf
                     @method('DELETE')
-                    <td> <button  id="delete" class="btn btn-danger">Delete</button> </td>
+                    <td> <button  id="delete" class="btn btn-danger" data-user-name="{{$user->name}}">Delete</button> </td>
                 </form>
             </tr>
         @endforeach
@@ -43,13 +43,12 @@
     </div>
 @endsection
 @section('javascript')
-    const deleteButton = document.getElementById('delete');
-    deleteButton.addEventListener('click', editUser);
 
-    function editUser(){
-   alert('sss');
+    const deleteButtons = document.querySelectorAll('button[data-user-name]');
+    deleteButtons.forEach(button => button.addEventListener('click', deleteUser));
+
+    function deleteUser(event){
+    const userName = event.target.dataset.userName;
+    alert(`You have removed ${userName}`);
     };
-
-    alert('xxx');
-
     @endsection
