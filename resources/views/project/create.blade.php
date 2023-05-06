@@ -47,7 +47,7 @@
             <select class="form-select @error('assigned_user') is-invalid @enderror" id="assigned_user" name="assigned_user" value="{{old('assigned_user')}}">
                 <option class="selected">Users</option>
                 @foreach($users as $user)
-                    <option value={{$user->id}}>{{$user->name}}</option>
+                    <option value={{$user->name}}>{{$user->name}}</option>
                 @endforeach
             </select>
             @error('assigned_user')
@@ -60,14 +60,13 @@
             <select class="form-select @error('assigned_client') is-invalid @enderror" id="assigned_client" name="assigned_client" value="{{old('assigned_client')}}" id="assigned_client">
                 <option class="selected">Clients</option>
                 @foreach($clients as $client)
-                    <option value={{$client->id}}>{{$client->company}}</option>
+                    <option value={{$client->company}}>{{$client->company}}</option>
                 @endforeach
             </select>
             @error('assigned_client')
             <span class="invalid-feedback" role="alert">{{ $message }}</span>
             @enderror
         </div>
-
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4 m-2">Save</button>
     </form>

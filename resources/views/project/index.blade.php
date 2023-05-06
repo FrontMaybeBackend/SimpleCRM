@@ -20,6 +20,7 @@
                                     <th scope="col">Description</th>
                                     <th scope="col">User</th>
                                     <th scope="col">Client</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -30,6 +31,12 @@
                                         <td>{{ $project->deadline}}</td>
                                         <td>{{ $project->assigned_client }}</td>
                                         <td>{{ $project->assigned_user }}</td>
+                                        <td>
+                                            <form action="" method="GET">
+                                        @csrf
+                                        <button class="btn btn-info">V</button>
+                                        </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
