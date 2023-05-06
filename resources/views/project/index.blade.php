@@ -10,16 +10,16 @@
             <div class="container ">
                 <div class="row ">
                     <div class="col-md-8 bg-white border border-dark">
-                        <div class="col m-2 "> Clients List
+                        <div class="col m-2 "> Projects List
                             <hr>
                             <table class="table ">
                                 <thead>
                                 <tr>
-                                    <th scope="col">Id</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">User</th>
+                                    <th scope="col">Deadline</th>
                                     <th scope="col">Client</th>
+                                    <th scope="col">User</th>
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
@@ -32,7 +32,7 @@
                                         <td>{{ $project->assigned_client }}</td>
                                         <td>{{ $project->assigned_user }}</td>
                                         <td>
-                                            <form action="" method="GET">
+                                            <form action="{{route('project.view', $project)}}" method="GET">
                                         @csrf
                                         <button class="btn btn-info">V</button>
                                         </form>

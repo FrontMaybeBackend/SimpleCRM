@@ -24,12 +24,18 @@ class ProjectController extends Controller
      */
 
 
-        public function index(): \Illuminate\View\View
+     public function view(Project $project): View
+     {
+         return view('project.view',[
+             'projects'=>$project
+         ]);
+     }
+
+        public function index(): View
         {
             return view('project.index', [
                 'projects' => Project::paginate(5),
             ]);
-
         }
 
 
@@ -45,7 +51,6 @@ class ProjectController extends Controller
 
     public function store(ProjectCreateRequest $request): RedirectResponse
     {
-
         Project::create($request->validated());
         return redirect()->route('project.index');
     }
