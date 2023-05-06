@@ -28,7 +28,7 @@
                 <form action={{route('users.destroy', $user)}} method="POST">
                     @csrf
                     @method('DELETE')
-                    <td> <button  id="delete" class="btn btn-danger" data-user-name="{{$user->name}}">Delete</button> </td>
+                    <td> <button  id="delete" class="btn btn-danger" data-user-name="{{$user->name}}">X</button> </td>
                 </form>
             </tr>
         @endforeach

@@ -32,10 +32,9 @@
                                         <td>{{ $project->assigned_client }}</td>
                                         <td>{{ $project->assigned_user }}</td>
                                         <td>
-                                            <form action="{{route('project.view', $project)}}" method="GET">
-                                        @csrf
-                                        <button class="btn btn-info">V</button>
-                                        </form>
+                                            <a class="" href="{{route('project.view', $project)}}">
+                                                <button class="btn btn-success">V </button>
+                                        </a>
                                         </td>
                                     </tr>
                                 @endforeach

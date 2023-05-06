@@ -29,15 +29,18 @@
                                         <td>{{ $client->company }}</td>
                                         <td>{{ $client->vat }}</td>
                                         <td>{{ $client->address }}</td>
+                                        <td>
                                         <form action="{{route('index.destroy', $client)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                        <td> <button class="btn btn-danger" >Delete</button> </td>
+                                       <button class="btn btn-danger action-button" >X</button>
                                         </form>
-                                        <form action="{{route('edit', $client)}}" method="GET">
-                                            @csrf
-                                            <td> <button class="btn btn-info" >Edit</button> </td>
-                                        </form>
+                                        </td>
+                                        <td>
+                                            <a class="" href="{{route('edit', $client)}}">
+                                                <button type="button" class="btn btn-primary action-button">E</button>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                     </tbody>
