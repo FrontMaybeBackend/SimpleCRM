@@ -29,8 +29,8 @@ class Project extends Model
         static::created(function ($project) {
             $client = Client::find($project->assigned_client);
             if($client) {
-                $client->project_id = $project->company;
-                $client->save();
+                $client->project_id = $project->id;
+                $client->update();
             }
         });
     }
