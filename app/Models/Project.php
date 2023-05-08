@@ -35,6 +35,8 @@ class Project extends Model
         });
     }
 
+
+
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);
@@ -43,5 +45,11 @@ class Project extends Model
     public function project():HasMany
     {
         return $this->hasMany(Task::class);
+    }
+
+
+    public function projects():BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

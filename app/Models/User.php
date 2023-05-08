@@ -13,6 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static findOrFail($id)
  * @method static inRandomOrder()
  * @method static paginate(int $int)
+ * @method static find($assigned_user)
  */
 class User extends Authenticatable
 {
@@ -27,7 +28,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'user_id',
+        'project_id',
     ];
 
     /**
@@ -54,5 +55,9 @@ class User extends Authenticatable
         return $this->hasMany(Client::class);
     }
 
+    public function projects(): HasMany
+    {
+        return $this->hasMany(Project::class);
+    }
 
 }

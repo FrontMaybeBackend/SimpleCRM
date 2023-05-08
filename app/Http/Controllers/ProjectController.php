@@ -7,11 +7,14 @@ use App\Http\Requests\Project\ProjectCreateRequest;
 use App\Models\Client;
 use App\Models\Project;
 use App\Models\User;
+use http\Env\Request;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ProjectController extends Controller
 {
@@ -24,18 +27,20 @@ class ProjectController extends Controller
      */
 
 
-     public function view(Project $project): View
+     public function view(Project $project, ): View
      {
-         return view('project.view',[
-             'projects'=>$project
-         ]);
+             return view('project.view', [
+                 'projects' => $project
+             ]);
      }
 
         public function index(): View
         {
-            return view('project.index', [
-                'projects' => Project::paginate(5),
-            ]);
+
+                return view('project.index', [
+                    'projects' => Project::paginate(5),
+                ]);
+
         }
 
 
