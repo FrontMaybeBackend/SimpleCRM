@@ -28,4 +28,11 @@ class UserController extends Controller
         return redirect()->route('user.users');
     }
 
+    public function view(User $user): \Illuminate\Contracts\View\View
+    {
+        return view('user.view', [
+            'users' => $user
+        ]);
+    }
+
 }

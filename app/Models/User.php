@@ -14,6 +14,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static inRandomOrder()
  * @method static paginate(int $int)
  * @method static find($assigned_user)
+ * @method static create(array $array)
  */
 class User extends Authenticatable
 {
@@ -26,6 +27,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
+        'phone_number',
         'email',
         'password',
         'project_id',
