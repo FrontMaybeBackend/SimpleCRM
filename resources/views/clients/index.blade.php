@@ -9,9 +9,10 @@
             <div class="col py-3">
                 <div class="container ">
                     <div class="row ">
-                        <div class="col-md-8 bg-white border border-dark">
+                        <div class="col-md-8 bg-white border border-dark" id="table">
                             <div class="col m-2 "> Clients List
                                 <hr>
+                                <div class="table-responsive" >
                                 <table class="table ">
                                     <thead>
                                     <tr>
@@ -45,6 +46,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                </div>
                                 {{ $clients->links() }}
                             </div>
                         </div>
