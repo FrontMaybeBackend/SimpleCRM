@@ -11,44 +11,38 @@
                     <div class="card-body">
 
                         <div class="row mb-3">
-                            <label for="title" class="col-md-4 col-form-label text-md-end">Title</label>
+                            <label for="Name" class="col-md-4 col-form-label text-md-end">Name</label>
 
                             <div class="col-md-6">
-                                <input id="title" type="text"  class="form-control "name="title" value="{{$user->name}}" readonly >
+                                <input id="Name" type="text"  class="form-control "name="name" value="{{$users->name}}" readonly >
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="description" class="col-md-4 col-form-label text-md-end">Description</label>
+                            <label for="surname" class="col-md-4 col-form-label text-md-end">Surname</label>
 
                             <div class="col-md-6">
-                                <textarea id="description"   class="form-control" name="description" readonly >{{ $user->email }}</textarea>
+                                <textarea id="surname"   class="form-control" name="surname" readonly >{{ $users->surname }}</textarea>
                             </div>
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <label for="deadline" class="col-md-4 col-form-label text-md-end">Deadline</label>
+                        <label for="email" class="col-md-4 col-form-label text-md-end">Email</label>
 
                         <div class="col-md-6">
-                            <input id="deadline"   class="form-control" name="deadline" value="{{ $projects->deadline }}" readonly >
+                            <input id="email"   class="form-control" name="email" value="{{ $users->email }}" readonly >
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <label for="user" class="col-md-4 col-form-label text-md-end">User</label>
+                        <label for="phone-number" class="col-md-4 col-form-label text-md-end">Phone Number</label>
+
                         <div class="col-md-6">
-                            <input id="user"   class="form-control" name="user" value="{{ $projects->assigned_user }}" readonly >
+                            <input id="phone-number"   class="form-control" name=phone-number" value="{{ $users->phone_number }}" readonly >
                         </div>
                     </div>
 
-                    <div class="row mb-3">
-                        <label for="client" class="col-md-4 col-form-label text-md-end">Client</label>
-
-                        <div class="col-md-6">
-                            <input id="client"   class="form-control" name="client" value="{{ $projects->assigned_client }}" readonly >
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

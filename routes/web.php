@@ -35,6 +35,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::controller(UserController::class)->group(function () {
     Route::get('/users','index')->name('user.users')->middleware('auth');
     Route::delete('/users/{user}','destroy')->name('users.destroy')->middleware('auth');
+    Route::get('/users/{user:name}', 'view')->name('user.view')->middleware('auth');
 });
 
 //Clients

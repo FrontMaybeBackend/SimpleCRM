@@ -27,11 +27,21 @@
                 <td>{{ $user->surname}}</td>
                 <td>{{ $user->phone_number }}</td>
                 <td>{{ $user->email }}</td>
+                <td>
                 <form action={{route('users.destroy', $user)}} method="POST">
                     @csrf
                     @method('DELETE')
-                    <td> <button  id="delete" class="btn btn-danger" data-user-name="{{$user->name}}">X</button> </td>
+                     <button  id="delete" class="btn btn-danger" data-user-name="{{$user->name}}">X</button>
                 </form>
+                   <!-- <a class="" href="">
+                        <button class="btn btn-success"> X</button>
+                    </a>
+                    -->
+                    <a class="" href="{{route('user.view', $user)}}">
+                        <button class="btn btn-success">V </button>
+                    </a>
+                </td>
+
             </tr>
         @endforeach
         </tbody>
